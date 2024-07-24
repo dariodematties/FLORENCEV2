@@ -1,6 +1,6 @@
 # FLORENCEV2
 ## BUILD IT
- <code> sudo docker buildx build --platform=linux/amd64 -t your\_docker\_hub\_user\_name/florencev2 -f Dockerfile --push . </code> 
+ <code> sudo docker buildx build --platform=linux/amd64,linux/arm64/v8 -t your\_docker\_hub\_user\_name/florencev2 -f Dockerfile --push . </code> 
 ## PULL IT
  <code> sudo docker pull your\_docker\_hub\_user\_name/florencev2:latest </code>
 ## RUN IT
