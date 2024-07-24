@@ -9,6 +9,7 @@ WORKDIR /app
 COPY requirements.txt requirements.txt
 RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
+ENV TRANSFORMERS_CACHE=/hf_cache/
 ## see this for torch installation https://pytorch.org/get-started/previous-versions/#v1131
 #RUN pip install torch==1.13.1 torchvision==0.14.1 torchaudio==0.13.1 --index-url https://download.pytorch.org/whl/cu116
 #RUN pip install pywaggle[all]
