@@ -1,3 +1,5 @@
+import numpy as np
+
 def run_example(processor, image, device, torch_dtype, model, task_prompt, text_input=None):
     if text_input is None:
         prompt = task_prompt
@@ -43,9 +45,9 @@ def get_reward_from_bboxes(bboxes, image):
 
 
 
-def get_reward_from_image(processor, image, device, torch_dtype, model, task_prompt, text_input=None):
+def get_reward_from_image(processor, image, device, torch_dtype, model, text_input=None):
     task_prompt = "<MORE_DETAILED_CAPTION>"
-    caption=run_example(processor, image, device, torch_dtype, model, task_prompt, text_input)[prompt]
+    caption=run_example(processor, image, device, torch_dtype, model, task_prompt, text_input)[task_prompt]
     task_prompt = "<CAPTION_TO_PHRASE_GROUNDING>"
     results = run_example(processor, image, device, torch_dtype, model, task_prompt, text_input)
     bboxes=results['<CAPTION_TO_PHRASE_GROUNDING>']['bboxes']
